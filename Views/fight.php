@@ -20,20 +20,25 @@ require "../Controller/fightController.php";
 <div class="background" style="width: 100%;">
 
 <div style="height: 30rem;" id="monster" class="ml-5">
-    <img src="../assets/img/<?php echo $nomimages[$affimage]; ?>.gif" alt="monstre" style="height: 20rem;" >
+    <img src="../assets/img/<?php echo $_SESSION["monster"]->getName() ?>.gif" alt="monstre" style="height: 20rem;" >
 </div>
 <div  class="hero" style="height: 50rem;">           
-        <img src="../assets/img/<?php echo $_GET['character'] ?>.gif" alt="hero" style="height: 50rem;" id="hero">
+        <img src="../assets/img/<?php echo $_SESSION["character"]->getName() ?>.gif" alt="hero" style="height: 50rem;" id="hero">
               
 </div>
 </div>
 
 
 <div class="button1 mt-5">
-<button href="fight.php">test</button>
+<button><a href="fight.php?character=<?= $_SESSION["character"]->getName() ?>&monster=<?= $_SESSION["monster"]->getName() ?>">test</a></button>
 </div>
     
 
+<?php echo "Le monstre inflige " . $_SESSION["monster"]->getWeaponDamage() . " dégats ! mais " . $_SESSION["character"]->getShield() . " bloque " . $_SESSION["character"]->getShieldValue() . " dégats, il subit donc " . ($_SESSION["monster"]->getWeaponDamage() - $_SESSION["character"]->getShieldValue()) . " point de dégats, il lui reste " . $_SESSION["character"]->getHealth() . " point de vie !!! <br>";
+ 
+ var_dump($_SESSION["character"]);
+ 
+ ?>
 
 
 

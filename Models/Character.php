@@ -16,7 +16,7 @@ class Character
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -26,7 +26,7 @@ class Character
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -128,8 +128,8 @@ class Character
         return $this->weaponDamage;
     }
 
-    
-    
+
+
 
 
 
@@ -151,6 +151,7 @@ class Character
         $this->attack($minDamage, $maxDamage);
         $this->setShield($shield);
         $this->armor($minShield, $maxShield);
+        
     }
 
 
@@ -159,20 +160,18 @@ class Character
     public function hp($minHealth, $maxHealth)
     {
         $this->health = rand($minHealth, $maxHealth);
-        return $this->health;
+        
     }
 
     public function attack($minDamage, $maxDamage)
     {
         $this->weaponDamage = rand($minDamage, $maxDamage);
-        return $this->weaponDamage;
+        
     }
 
     public function armor($minShield, $maxShield)
     {
         $this->shieldValue = rand($minShield, $maxShield);
-        return $this->shieldValue;
+        
     }
-
-    
 }
